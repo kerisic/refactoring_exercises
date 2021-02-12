@@ -4,11 +4,12 @@ class BrowserMessage
     safari_message = "You are using the Safari browser."
     not_safari_message = "You are not using a Safari browser."
 
-    safari?(browser) ? puts safari_message : puts not_safari_message
+    Browser.new.safari?(browser) ? puts safari_message : puts not_safari_message
   end
 
-  private
+end
 
+class Browser
   def safari?(browser)
     browser.type == "Safari"
   end
