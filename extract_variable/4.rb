@@ -5,10 +5,14 @@ class Mail
   end
 
   def send_message
+    fancymessage = { to: @email, body: "Welcome to MyProduct, fancy person!" }
+    message = { to: @email, body: "Welcome to MyProduct" }
+    server = "http://mixmax.com"
+    key = "f20506xx808c"
     if fancy
-      MailServer.connect("http://mixmax.com", api_key: "f20506xx808c").send_message({ to: @email, body: "Welcome to MyProduct, fancy person!" })
+      MailServer.connect(server, api_key: key).send_message(fancymessage)
     else
-      MailServer.connect("http://mixmax.com", api_key: "f20506xx808c").send_message({ to: @email, body: "Welcome to MyProduct" })
+      MailServer.connect(server, api_key: key).send_message(message)
     end
   end
 end
