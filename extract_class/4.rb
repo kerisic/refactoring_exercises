@@ -7,13 +7,13 @@ class Mail
 
   def send_message
     mail_server = MailServer.connect("http://mixmax.com", api_key: "f20506xx808c")
-    mail_server.send_message({ to: @email, body: body })
+    mail_server.send_message({ to: @email, body: Message.new.body(@fancy) })
   end
+end
 
-  private
-
-  def body
+class Message
+  def body(fancy)
     base_body = "Welcome to MyProduct"
-    @fancy ? "#{ base_body }, fancy person!" : base_body
+    fancy ? "#{ base_body }, fancy person!" : base_body
   end
 end
