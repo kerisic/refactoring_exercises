@@ -1,7 +1,9 @@
 def tell_browser_type(browser)
+  safari = "You are using the Safari browser."
+  nonsafari = "You are using a non-Safari browser."
   if(browser.type == "Safari")
-    puts "You are using the Safari browser."
+    puts safari
   else
-    puts "You are using a non-Safari browser."
+    puts nonsafari
   end
 end
